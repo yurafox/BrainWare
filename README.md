@@ -16,4 +16,4 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 
 
 ## Original Output Example
-![page image](output.gif)
+![page image](output.GIF?raw=true)
