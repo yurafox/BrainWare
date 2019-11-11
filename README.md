@@ -8,6 +8,8 @@ There is no need to add additional functionality and you do not need to keep the
 
 The only requirement is that it returns the list of orders and that it meets your standards!
 
+Fork this project to your personal repo and commit all your changes to that branch. 
+
 ## Changes for Running Locally
 
 Update the connection string in the class <project root>\Web\Infrastructure\Database.cs.
