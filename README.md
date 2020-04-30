@@ -34,6 +34,7 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 
 ### Visual Studio
 - Open solution BrainWare\BrainWare.sln
+- Update the database connection string in file Web\Infrastructure\Database.cs
 - Set the project Web, as the start up project
 - Press F5
 - Expected a browser is open with the result of the first order
