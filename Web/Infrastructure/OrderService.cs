@@ -29,7 +29,7 @@ namespace Web.Infrastructure
 
                 values.Add(new Order()
                 {
-                    CompanyName = record1["name"].ToString(),
+                    CompanyName = record1.GetString(0),
                     Description = record1.GetString(1),
                     OrderId = record1.GetInt32(2),
                     OrderProducts = new List<OrderProduct>()
