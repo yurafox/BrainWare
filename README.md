@@ -25,8 +25,8 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 
 ### Database Setup
 - Start SQL Server Management Studio as Administrator
-- Once conntected to your local SQL Server instance
-- Right click on the Database node and select attach
+- Once connected to your local SQL Server instance
+- Right click on the Database node and select Attach
 - Select the file BrainWare\Web\App_Data\BrainWare.mdf
 
 - You can also deploy the project ProjectDB to your local SQL Server instance
@@ -36,4 +36,4 @@ Change the AttachDbFile name to the full path of the BrainWare.mdf file (located
 - Open solution BrainWare\BrainWare.sln
 - Set the project Web, as the start up project
 - Press F5
-- Execpted a browser is open with the result of the first order
+- Expected a browser is open with the result of the first order
