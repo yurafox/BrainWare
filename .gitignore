@@ -83,8 +83,6 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
-*.mdf
-*.ldf
 
 # Chutzpah Test files
 _Chutzpah*
@@ -330,3 +328,6 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
+# database
+*.mdf
+*.ldf
