@@ -1,43 +1,39 @@
-﻿using System;
+﻿using System.Data.Common;
+using System.Data.SqlClient;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data;
+using System;
 
 namespace Web.Infrastructure
 {
-    using System.Data.Common;
-    using System.Data.SqlClient;
-
     public class Database
     {
-        private readonly SqlConnection _connection;
+        private const string CON_STR = "Server=localhost\\SQLEXPRESS;Database=BrainWare;Integrated Security=SSPI";
+        public Database(){}
 
-        public Database()
-        {
-            // var connectionString = "Data Source=LOCALHOST;Initial Catalog=BrainWare;Integrated Security=SSPI";
-            var mdf = @"C:\Brainshark\interview\BrainWare\Web\App_Data\BrainWare.mdf";
-            var connectionString = $"Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=BrainWAre;Integrated Security=SSPI;AttachDBFilename={mdf}";
+        public IEnumerable<T> ExecuteReader<T>(string sql, SqlParameter[] qryParams, Func<IDataRecord, T> copyRowData){
+            using (var con = new SqlConnection(CON_STR)) 
+            using (var sqlQuery = new SqlCommand(sql, con)){
+                con.Open();
 
-            _connection = new SqlConnection(connectionString);
+                if (qryParams != null)
+                    sqlQuery.Parameters.AddRange(qryParams);
 
-            _connection.Open();
+                using (var rdr = sqlQuery.ExecuteReader()) {
+                    while (rdr.Read()) {
+                        yield return copyRowData(rdr);
+                    }
+                }
+            }
         }
 
-        public DbDataReader ExecuteReader(string query)
-        {
-           
-
-            var sqlQuery = new SqlCommand(query, _connection);
-
-            return sqlQuery.ExecuteReader();
+        public int ExecuteNonQuery(string query){
+            using (SqlConnection con = new SqlConnection(CON_STR)) {
+                var sqlQuery = new SqlCommand(query, con);
+                int res = sqlQuery.ExecuteNonQuery();
+                con.Close();
+                return res;
+            }
         }
-
-        public int ExecuteNonQuery(string query)
-        {
-            var sqlQuery = new SqlCommand(query, _connection);
-
-            return sqlQuery.ExecuteNonQuery();
-        }
-
     }
 }

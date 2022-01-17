@@ -136,7 +136,9 @@
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Errors\" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -176,11 +178,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Database.cs" />
+    <Compile Include="Infrastructure\Interface\IOrderService.cs" />
     <Compile Include="Infrastructure\OrderService.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderProduct.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="500.html" />
     <Content Include="App_Data\BrainWare.mdf" />
     <Content Include="App_Data\BrainWare_log.ldf">
       <DependentUpon>BrainWare.mdf</DependentUpon>
@@ -233,6 +239,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="404.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
