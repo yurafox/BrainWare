@@ -13,7 +13,7 @@ namespace Web.Infrastructure
         private List<Order> GetOrders(int companyId) {
             var sql =
                 "SELECT c.name, o.description, o.order_id " +
-                "FROM company c " +
+                "FROM [company] c " +
                 "INNER JOIN [order] o on c.company_id=o.company_id " +
                 "WHERE c.company_id = @cid";
 
@@ -39,8 +39,8 @@ namespace Web.Infrastructure
         private List<OrderProduct> GetOrderProducts() {
             var sql =
                 "SELECT op.price, op.order_id, op.product_id, op.quantity, p.name, p.price " +
-                "FROM orderproduct op " +
-                "INNER JOIN product p on op.product_id=p.product_id";
+                "FROM [orderproduct] op " +
+                "INNER JOIN [product] p on op.product_id=p.product_id";
 
             return _db.ExecuteReader(
                 sql,

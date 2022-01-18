@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web;
 using Web.Controllers;
 
 namespace Tests.Controllers
@@ -20,12 +19,6 @@ namespace Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("Home Page", result.ViewBag.Title);
-        }
-
-        [TestMethod]
-        public void Test()
-        {
-            Assert.IsTrue(true);
         }
     }
 }

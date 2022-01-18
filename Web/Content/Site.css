@@ -16,3 +16,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#orders > ul > li {
+    font-size: 1.2em;
+}
+
+#orders > ul > li > ul > li {
+    font-size: .8em;
+}
+

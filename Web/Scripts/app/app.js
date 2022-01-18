@@ -16,7 +16,7 @@
                         var $productList = $('<ul/>');
 
                         $.each(this.OrderProducts, function (j) {
-                            var $li2 = $('<li/>').text(this.Product.Name + ' (' + this.Quantity + ' @@ $' + this.Price + '/ea)')
+                            $('<li/>').text(this.Product.Name + ' (' + this.Quantity + ' @@ $' + this.Price + '/ea)')
                                 .appendTo($productList);
                         });
 
@@ -25,6 +25,9 @@
 
                 $orders.append($orderList);
             }
+        },
+        'error': function (jqXHR, textStatus, errorThrown) {
+            window.alert("The api call returns an error. Please call support.");
         }
     });
 }
